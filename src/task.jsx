@@ -4,9 +4,9 @@ import styled from "styled-components";
 
 const Container = styled.div`
   border: 1px solid lightgrey;
-  border-radius: 2px;
+  border-radius: 50%;
   padding: 8px;
-  margin-bottom: 8px;
+  margin-right: 8px;
   background-color: ${(props) =>
     props.isDragDisabled
       ? "lightgrey"
@@ -14,6 +14,10 @@ const Container = styled.div`
       ? "Lightgreen"
       : "white"};
   display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
 `;
 
 // const Handler = styled.div`
@@ -38,10 +42,10 @@ export default class Task extends React.Component {
             {...provided.dragHandleProps}
             ref={provided.innerRef}
             isDragging={snapshot.isDragging}
-            isDragDisabled={isDragDisabled} // we put it here to add condition in the styled component
+            // isDragDisabled={isDragDisabled} // we put it here to add condition in the styled component
           >
             {/* <Handler {...provided.dragHandleProps}></Handler> */}
-            {this.props.task.content}
+            {this.props.task.content[0]}
           </Container>
         )}
       </Draggable>
